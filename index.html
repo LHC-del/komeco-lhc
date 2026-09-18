@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E30613">
+<title>Soluções Komeco — Luiz Henrique</title>
+<meta property="og:title" content="3 soluções Komeco — Luiz Henrique">
+<meta property="og:description" content="Robô aspirador de piscina, robô skimmer de superfície e carregador para carro elétrico.">
+<meta property="og:image" content="assets/foto_aspirador.png">
+<style>
+  :root{
+    --vermelho:#E30613; --vermelho-esc:#b8050f; --navy:#0B1F3A; --dourado:#C9A24B;
+    --tinta:#141416; --cinza:#f5f5f7; --linha:#e6e6ea; --verde:#25D366;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; min-width:0; }
+  html,body{ width:100%; max-width:100%; overflow-x:hidden; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; color:var(--tinta);
+        background:var(--cinza); line-height:1.55; }
+  img,video{ max-width:100%; height:auto; display:block; }
+  h1,h2,h3,p,li,a{ overflow-wrap:anywhere; word-break:break-word; }
+
+  /* Header */
+  .topo{ background:var(--vermelho); color:#fff; padding:16px 20px; display:flex; align-items:center; gap:12px;
+         position:sticky; top:0; z-index:30; box-shadow:0 2px 12px rgba(0,0,0,.15); }
+  .selo{ background:#fff; color:var(--vermelho); font-weight:900; font-size:clamp(20px,5vw,26px);
+         width:44px; height:44px; border-radius:9px; display:grid; place-items:center; flex:0 0 auto; }
+  .topo b{ font-size:clamp(20px,5vw,26px); letter-spacing:.5px; }
+
+  /* Hero */
+  .hero{ text-align:center; padding:38px 22px 18px; max-width:760px; margin:0 auto; }
+  .hero h1{ font-size:clamp(26px,6.5vw,42px); font-weight:800; line-height:1.15; }
+  .hero h1 span{ color:var(--vermelho); }
+  .hero p{ font-size:clamp(15px,4vw,19px); color:#555; margin-top:12px; }
+
+  /* Cards */
+  .wrap{ max-width:1080px; margin:0 auto; padding:12px 16px 40px; }
+  .prod{ background:#fff; border-radius:22px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.09);
+         margin:22px 0; }
+  .prod .foto{ background:linear-gradient(160deg,#ffffff 0%,#eef1f5 100%); display:grid; place-items:center;
+               padding:26px; }
+  .prod .foto img{ width:min(78%,340px); height:auto; filter:drop-shadow(0 14px 26px rgba(0,0,0,.18)); }
+  .info{ padding:24px 22px 28px; }
+  .tag{ display:inline-block; background:var(--vermelho); color:#fff; font-size:12px; font-weight:700;
+        padding:5px 14px; border-radius:20px; letter-spacing:.6px; }
+  .info h2{ font-size:clamp(21px,5.4vw,27px); margin:12px 0 6px; }
+  .info .sub{ color:#5a5a5f; margin-bottom:15px; font-size:clamp(14px,3.8vw,16px); }
+  .info ul{ list-style:none; }
+  .info li{ padding:7px 0 7px 28px; position:relative; font-size:clamp(14px,3.8vw,16px); }
+  .info li::before{ content:""; position:absolute; left:0; top:14px; width:11px; height:11px;
+                    border-radius:50%; background:var(--vermelho); }
+  .btn{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:20px;
+        background:var(--verde); color:#fff; text-decoration:none; font-weight:700; font-size:17px;
+        padding:15px 22px; border-radius:13px; transition:filter .15s; }
+  .btn:active{ filter:brightness(.92); }
+  .videobox{ margin-top:18px; border-radius:14px; overflow:hidden; background:#000; }
+  .videobox video{ width:100%; height:auto; }
+  .vlabel{ font-size:13px; color:#888; margin:14px 0 6px; font-weight:600; }
+
+  /* Desktop: 2 colunas */
+  @media(min-width:820px){
+    .prod{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
+    .prod .foto{ padding:34px; }
+    .prod .foto img{ width:min(88%,400px); }
+    .info{ padding:34px 34px 36px; display:flex; flex-direction:column; }
+    .btn{ align-self:flex-start; padding:15px 34px; }
+  }
+
+  /* Carimbo / rodapé */
+  .rodape{ background:var(--navy); color:#fff; padding:40px 20px 60px; }
+  .carimbo{ max-width:640px; margin:0 auto; background:linear-gradient(160deg,#0e2647,#0a1a30);
+            border:3px solid var(--dourado); border-radius:20px; padding:24px;
+            display:flex; align-items:center; gap:22px; }
+  .carimbo .selolh{ flex:0 0 auto; width:96px; height:96px; border:3px solid var(--dourado);
+            border-radius:50%; display:grid; place-items:center; text-align:center; }
+  .carimbo .selolh b{ color:var(--dourado); font-size:34px; font-weight:900; line-height:1; }
+  .carimbo .selolh small{ color:var(--dourado); font-size:8px; letter-spacing:1px; display:block; margin-top:3px; }
+  .carimbo .dados{ flex:1 1 auto; min-width:0; }
+  .carimbo .dados h3{ font-size:24px; margin-bottom:4px; }
+  .carimbo .dados p{ color:#cdd6e2; font-size:14px; }
+  .carimbo .dados a{ color:var(--dourado); font-weight:700; text-decoration:none; font-size:17px; }
+  .carimbo .dados .cta{ display:inline-block; margin-top:8px; color:var(--dourado); font-weight:700; font-size:16px; }
+  .carimbo .qr{ flex:0 0 auto; width:104px; height:104px; background:#fff; border-radius:10px; padding:7px; }
+  .carimbo .qr img{ width:100%; height:100%; }
+  .rodape .fim{ text-align:center; color:#8ea0b8; font-size:12px; margin-top:26px; }
+  @media(max-width:520px){
+    .carimbo{ flex-direction:column; text-align:center; gap:16px; }
+    .carimbo .dados a{ font-size:16px; }
+  }
+
+  /* Botão flutuante */
+  .float{ position:fixed; right:16px; bottom:16px; background:var(--verde); color:#fff; text-decoration:none;
+          font-weight:700; padding:14px 20px; border-radius:50px; box-shadow:0 6px 22px rgba(0,0,0,.3);
+          z-index:40; display:flex; align-items:center; gap:8px; font-size:15px; }
+  .disc{ max-width:1080px; margin:0 auto; padding:0 20px 20px; color:#9a9aa0; font-size:12px; text-align:center; }
+</style>
+</head>
+<body>
+  <header class="topo"><span class="selo">K</span><b>KOMECO</b></header>
+
+  <section class="hero">
+    <h1>3 soluções <span>Komeco</span> pra facilitar o seu dia</h1>
+    <p>Robô aspirador de piscina, robô skimmer de superfície e carregador para carro elétrico. Veja a foto, assista ao vídeo e fale comigo.</p>
+  </section>
+
+  <main class="wrap">
+
+    <!-- 1) ASPIRADOR -->
+    <article class="prod">
+      <div class="foto"><img src="assets/foto_aspirador.png" alt="Robô Aspirador de Piscina AquaPlus Prime Komeco"></div>
+      <div class="info">
+        <span class="tag">LINHA PISCINA</span>
+        <h2>Robô Aspirador AquaPlus Prime</h2>
+        <p class="sub">Sua piscina limpa de forma automática — piso e paredes, sem esforço.</p>
+        <ul>
+          <li>Motor de 80 W e rotação de até 3.500 RPM: sobe as paredes com facilidade</li>
+          <li>Até 3 h de autonomia sem fio, com bateria recarregável</li>
+          <li>Sensores giroscópio e infravermelho detectam obstáculos e planejam a rota</li>
+          <li>7 modos no app Connect Komeco, filtro removível e self-parking (IPX8, até 3,5 m)</li>
+        </ul>
+        <div class="vlabel">▶ Veja funcionando</div>
+        <div class="videobox"><video controls preload="none" poster="assets/foto_aspirador.png" src="assets/vid_aspirador.mp4"></video></div>
+        <a class="btn" href="https://airgo.bio/lhcorreia" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      </div>
+    </article>
+
+    <!-- 2) SKIMMER -->
+    <article class="prod">
+      <div class="foto"><img src="assets/foto_skimmer.png" alt="Robô Skimmer de Superfície Komeco"></div>
+      <div class="info">
+        <span class="tag">LINHA PISCINA</span>
+        <h2>Robô Skimmer de Superfície</h2>
+        <p class="sub">A superfície da sua piscina sempre livre de folhas e impurezas.</p>
+        <ul>
+          <li>Carregamento solar ou portátil, com até 6 h de operação no modo smart</li>
+          <li>Wi-Fi e navegação inteligente que identifica e desvia de obstáculos</li>
+          <li>Controle pelo app Connect Komeco: joystick, modo padrão, smart e retorno à borda</li>
+          <li>Indicado para todos os tipos de piscina</li>
+        </ul>
+        <div class="vlabel">▶ Veja funcionando</div>
+        <div class="videobox"><video controls preload="none" poster="assets/foto_skimmer.png" src="assets/vid_skimmer.mp4"></video></div>
+        <a class="btn" href="https://airgo.bio/lhcorreia" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      </div>
+    </article>
+
+    <!-- 3) CARREGADOR -->
+    <article class="prod">
+      <div class="foto"><img src="assets/foto_carregador.png" alt="Carregador Veicular OCPP Komeco"></div>
+      <div class="info">
+        <span class="tag">LINHA CARREGADOR</span>
+        <h2>Carregador Veicular OCPP</h2>
+        <p class="sub">Recarregue seu carro elétrico em casa ou no seu negócio, com controle total.</p>
+        <ul>
+          <li>Modelos 7 kW (220V, monofásico) e 22 kW (380V, trifásico) — conector Tipo 2</li>
+          <li>Protocolo OCPP + Wi-Fi, Ethernet, Bluetooth e cartão RFID</li>
+          <li>Pelo app: agende horários, ajuste a potência e receba notificações em tempo real</li>
+          <li>8 proteções de segurança, modo stand-by de apenas 5 W e cabo de 7,5 m</li>
+        </ul>
+        <div class="vlabel">▶ Veja funcionando</div>
+        <div class="videobox"><video controls preload="none" poster="assets/foto_carregador.png" src="assets/vid_carregador.mp4"></video></div>
+        <a class="btn" href="https://airgo.bio/lhcorreia" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      </div>
+    </article>
+
+  </main>
+
+  <p class="disc">Imagens e informações técnicas: Komeco (komeco.com.br). A plataforma/app do carregador podem ser contratados à parte. Condições comerciais sob consulta.</p>
+
+  <footer class="rodape">
+    <div class="carimbo">
+      <div class="selolh"><div><b>LH</b><small>LUIZ HENRIQUE</small></div></div>
+      <div class="dados">
+        <h3>Luiz Henrique</h3>
+        <p>Gostou? Fale comigo — atendimento direto.</p>
+        <span class="cta">Aponte a câmera no QR-Code&nbsp;→</span>
+      </div>
+      <div class="qr"><img src="assets/qr_airgo.png" alt="QR-Code para falar com Luiz Henrique"></div>
+    </div>
+    <p class="fim">Komeco — Soluções para você. · Aponte a câmera do celular no QR-Code para falar comigo.</p>
+  </footer>
+
+  <a class="float" href="https://airgo.bio/lhcorreia" target="_blank" rel="noopener">💬 WhatsApp</a>
+</body>
+</html>
